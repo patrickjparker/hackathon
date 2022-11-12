@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="meal">
   <Module @click="show = !show" size="75" :completed="allFoodEaten">
     <div>
       <div class="name">{{ meal.name }}</div>
@@ -7,7 +7,7 @@
     </div>
   </Module>
   <transition>
-    <div v-if="show">
+    <div class="food" v-if="show">
       <div v-for="food in meal.foods" :key="food.id">
         <input type="checkbox" :value="food.name" v-model="foodEaten"/>
         <span>{{ food.name }}</span>
@@ -47,5 +47,12 @@ export default {
   margin: 0.25rem;
   font-weight: bold;
 }
+.meal {
+  margin-left: 2em;
+  margin-right: 2em;
+}
 
+.food {
+  margin-top: 1em;
+}
 </style>

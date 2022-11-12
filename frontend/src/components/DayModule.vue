@@ -7,7 +7,7 @@
     </div>
   </Module>
   <transition>
-    <div v-if="show">
+    <div class="meals" v-if="show">
       <MealModule v-for="meal in day.meals" :key="meal.id" :meal="meal"/>
     </div>
   </transition>
@@ -37,5 +37,10 @@ export default {
   margin: 0.25rem;
   font-size: 1.25rem;
   font-weight: bold;
-}
+}  
+
+.meals {
+    display: flex;
+    justify-content: center;
+  }
 </style>
