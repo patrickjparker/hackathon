@@ -1,23 +1,24 @@
 <template>
   <div>
     <h1>Week 1</h1>
-    <Module v-for="day in mockData.plan" :key="day">
+    <DayModule v-for="day in mockData.plan" :key="day" 
+      :meals="day.meals">
       <div>
         <div>{{ day.day }}</div>
         <div>Calories: {{day.goal.calories}}</div>
       </div>
-    </Module>
+    </DayModule>
   </div>
 </template>
 
 <script>
-import Module from "@/components/Module.vue";
+import DayModule from "@/components/Module.vue";
 import mockData from "@/assets/mockData.json";
 
 export default {
   name: "WeekView",
   components: {
-    Module
+    DayModule
   },
   data: function() {
     return {

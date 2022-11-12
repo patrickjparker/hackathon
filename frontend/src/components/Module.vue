@@ -1,36 +1,14 @@
 <template>
 <div>
-  <div class="container" @click="show = !show">
+  <div class="container">
     <slot/>
   </div>
-  <transition>
-    <div v-if="show">
-      <div v-for="meal in mockData.plan" :key="meal.id">
-        <div v-for="food in meal.foods" :key="food.id">
-          <input type="checkbox" :id="food.id" :value="food.id" v-model="foodsEaten">
-          {{ food.name }}
-          {{ food.calories }}
-        </div>
-        <div> Total Calories: {{ meal.totalCalories }} </div>
-      </div>
-    </div>
-  </transition>
 </div>
 </template>
 
 <script>
 export default {
   name: "Module",
-  props: {
-    day: String,
-    meals: Array
-  },
-  data: function() {
-    return {
-      show: false,
-      foodsEaten: []
-    };
-  }
 };
 </script>
 
