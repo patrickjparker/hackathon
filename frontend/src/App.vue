@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Plan</router-link> |
+      <router-link to="/profile">Profile</router-link>
     </div>
     <router-view/>
   </div>
@@ -10,9 +10,12 @@
 
 <style>
 :root {
+  --color-success: #8bde8b;
+  --color-meal: #d2d2d2;
+  --color-meal-border: #fff70b;
+  --color-day: #78aeff;
+  
   --color-primary: #ff0000;
-  --color-secondary: #429042;
-  --color-success: #00ff00;
   --color-dark: #000000;
   --color-light: #ffffff;
 }

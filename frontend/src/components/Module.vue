@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div :class="['container', (completed ? 'completed' : '')]" @click="$emit('click')">
+  <div :style="containerStyle" :class="['container', (completed ? 'completed' : color)]" @click="$emit('click')">
     <slot/>
   </div>
 </div>
@@ -18,6 +18,17 @@ export default {
     missed: {
       type: Boolean,
       default: false
+    },
+    color: {
+      type: String,
+      default: 'white'
+    }
+  },
+  computed: {
+    containerStyle: function() {
+      return {
+        "--size": this.size + 'px',
+      }
     }
   }
 };
@@ -30,10 +41,10 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  --size: 100px;
   width: var(--size);
   height: var(--size);
   border: var(--color-dark) 1px solid;
+  background-color: var(--default-background);
   margin-top: 3em;
   margin-left: auto;
   margin-right: auto;
@@ -43,5 +54,14 @@ export default {
 .completed {
   background-color: var(--color-success);
   color: var(--color-white);
+}
+
+.meal-color {
+  background-color: var(--color-meal);
+  border: var(--color-meal-border) 1px solid;
+}
+
+.day-color {
+  background-color: var(--color-day);
 }
 </style>
