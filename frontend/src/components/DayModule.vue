@@ -1,6 +1,6 @@
 <template>
 <div>
-  <Module @click="show = !show" size="110" color="day-color">
+  <Module @click="show = !show" size="110" color="day-color" :completed="allMealsComplete">
     <div>
       <div class="name">{{ day.day }}</div>
       <div>Calories: {{day.goal.calories}}</div>
@@ -8,7 +8,7 @@
   </Module>
   <transition name="slide-fade">
     <div class="meals" v-if="show">
-      <MealModule v-for="meal in day.meals" :key="meal.id" :meal="meal"/>
+      <MealModule v-for="meal in day.meals" :key="meal.name" :meal="meal" @input="complete => handleComplete(meal.name, complete)"/>
     </div>
   </transition>
 </div>
@@ -26,9 +26,23 @@ export default {
   data: function() {
     return {
       show: false,
-      foodsEaten: [],
+      daysComplete: [],
     }
   },
+  methods: {
+    handleComplete: function(id, complete) {
+      if (complete) {
+        this.daysComplete.push(id)
+      } else {
+        this.daysComplete = this.daysComplete.filter(mealId => mealId !== id)
+      }
+    }
+  },
+  computed: {
+    allMealsComplete: function() {
+      return this.daysComplete.length === this.day.meals.length
+    }
+  }
 }
 </script>
 

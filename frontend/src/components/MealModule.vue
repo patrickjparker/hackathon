@@ -9,10 +9,10 @@
   <transition name="slide-fade">
     <div class="food" v-show="show">
       <div class="grid">
-        <template v-for="food in foodsWithCheckboxes">
+        <template v-for="food in mealCheckbox">
           <input type="checkbox" :value="food.checked" :key="food.id" 
             :id="food.name" @input="handleCheckbox($event.target.id)"/>
-          <span :key="food.id">{{ food.name }}</span>
+          <span @click="handleCheckbox(food.name)" :key="food.id">{{ food.name }}</span>
         </template>
       </div>
       <div>Total Calories: {{ meal.totalCalories }}</div>
@@ -31,30 +31,28 @@ export default {
   data: function() {
     return {
       show: false,
-      foodEaten: [],
+      mealCheckbox: [],
     }
   },
   computed: {
     allFoodEaten: function() {
-      return this.foodEaten.length === this.meal.foods.length
-    },
-    foodsWithCheckboxes: function() {
-      return this.meal.foods.map(food => {
-        return {
-          ...food,
-          checked: false
-        }
-      })
+      return this.mealCheckbox.every(food => food.checked)
     }
   },
   methods: {
     handleCheckbox: function(id) {
-      if (this.foodEaten.includes(id)) {
-        this.foodEaten = this.foodEaten.filter(food => food !== id)
-      } else {
-        this.foodEaten.push(id)
-      }
+      const food = this.mealCheckbox.find(food => food.name === id)
+      food.checked = !food.checked
+      this.$emit('input', this.mealCheckbox.every(food => food.checked))
     }
+  },
+  created: function() {
+    this.mealCheckbox = this.meal.foods.map(food => {
+      return {
+        ...food,
+        checked: false
+      }
+    })
   }
 
 }
