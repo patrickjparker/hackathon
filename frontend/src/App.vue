@@ -11,7 +11,8 @@
 <style>
 :root {
   --color-primary: #ff0000;
-  --color-secondary: #00ff00;
+  --color-secondary: #429042;
+  --color-success: #00ff00;
   --color-dark: #000000;
   --color-light: #ffffff;
 }
