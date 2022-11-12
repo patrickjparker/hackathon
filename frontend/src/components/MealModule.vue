@@ -6,8 +6,8 @@
       <div>Calories: {{ meal.totalCalories }}</div>
     </div>
   </Module>
-  <transition>
-    <div class="food" v-if="show">
+  <transition name="slide-fade">
+    <div class="food" v-show="show">
       <div v-for="food in meal.foods" :key="food.id">
         <input type="checkbox" :value="food.name" v-model="foodEaten"/>
         <span>{{ food.name }}</span>
@@ -15,7 +15,6 @@
       <div>Total Calories: {{ meal.totalCalories }}</div>
     </div>
   </transition>
-
 </div>
 </template>
 
@@ -43,6 +42,17 @@ export default {
 </script>
 
 <style>
+.slide-fade-enter-active, 
+.slide-fade-leave-active {
+  transition: all 0.2s ease-out;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+
 .name {
   margin: 0.25rem;
   font-weight: bold;

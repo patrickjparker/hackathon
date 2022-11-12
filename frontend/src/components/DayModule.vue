@@ -6,7 +6,7 @@
       <div>Calories: {{day.goal.calories}}</div>
     </div>
   </Module>
-  <transition>
+  <transition name="slide-fade">
     <div class="meals" v-if="show">
       <MealModule v-for="meal in day.meals" :key="meal.id" :meal="meal"/>
     </div>
@@ -33,6 +33,17 @@ export default {
 </script>
 
 <style scoped>
+.slide-fade-enter-active, 
+.slide-fade-leave-active {
+  transition: all 0.2s ease-out;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+
 .name {
   margin: 0.25rem;
   font-size: 1.25rem;
