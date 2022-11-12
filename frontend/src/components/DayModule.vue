@@ -1,6 +1,6 @@
 <template>
 <div>
-  <Module @click="show = !show" size="100">
+  <Module @click="show = !show" size="110" color="day-color">
     <div>
       <div class="name">{{ day.day }}</div>
       <div>Calories: {{day.goal.calories}}</div>

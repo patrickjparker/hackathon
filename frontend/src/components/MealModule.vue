@@ -1,6 +1,6 @@
 <template>
 <div class="meal">
-  <Module @click="show = !show" size="75" :completed="allFoodEaten">
+  <Module @click="show = !show" size="105" :completed="allFoodEaten" color="meal-color">
     <div>
       <div class="name">{{ meal.name }}</div>
       <div>Calories: {{ meal.totalCalories }}</div>
@@ -8,8 +8,8 @@
   </Module>
   <transition name="slide-fade">
     <div class="food" v-show="show">
-      <div v-for="food in meal.foods" :key="food.id">
-        <input type="checkbox" :value="food.name" v-model="foodEaten"/>
+      <div v-for="food in foodsWithCheckboxes" :key="food.id">
+        <input type="checkbox" :value="food.checked" :id="food.name" @input="handleCheckbox($event.target.id)"/>
         <span>{{ food.name }}</span>
       </div>
       <div>Total Calories: {{ meal.totalCalories }}</div>
@@ -34,9 +34,25 @@ export default {
   computed: {
     allFoodEaten: function() {
       return this.foodEaten.length === this.meal.foods.length
+    },
+    foodsWithCheckboxes: function() {
+      return this.meal.foods.map(food => {
+        return {
+          ...food,
+          checked: false
+        }
+      })
     }
   },
-
+  methods: {
+    handleCheckbox: function(id) {
+      if (this.foodEaten.includes(id)) {
+        this.foodEaten = this.foodEaten.filter(food => food !== id)
+      } else {
+        this.foodEaten.push(id)
+      }
+    }
+  }
 
 }
 </script>

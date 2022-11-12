@@ -10,9 +10,12 @@
 
 <style>
 :root {
+  --color-success: #8bde8b;
+  --color-meal: #d2d2d2;
+  --color-meal-border: #fff70b;
+  --color-day: #78aeff;
+  
   --color-primary: #ff0000;
-  --color-secondary: #429042;
-  --color-success: #00ff00;
   --color-dark: #000000;
   --color-light: #ffffff;
 }
