@@ -4,7 +4,7 @@
     <slot/>
   </Module>
   <transition>
-    <div v-if="show">
+    <div class="meals" v-if="show">
       <MealModule v-for="meal in meals" :key="meal.id" :meal="meal"/>
     </div>
   </transition>
@@ -30,5 +30,8 @@ export default {
 </script>
 
 <style>
-
+  .meals {
+    display: flex;
+    justify-content: center;
+  }
 </style>

@@ -1,11 +1,11 @@
 <template>
-<div>
+<div class="meal">
   <Module @click="show = !show" size="75">
     {{ meal.name }}
     {{ meal.totalCalories }}
   </Module>
   <transition>
-    <div v-if="show">
+    <div class="food" v-if="show">
       <div v-for="food in meal.foods" :key="food.id">
         {{ food.name }}
       </div>
@@ -33,5 +33,12 @@ export default {
 </script>
 
 <style>
+.meal {
+  margin-left: 2em;
+  margin-right: 2em;
+}
 
+.food {
+  margin-top: 1em;
+}
 </style>
