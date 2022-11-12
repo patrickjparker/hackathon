@@ -14,7 +14,7 @@
               "calories": 300
             },
             {
-              "name": "5 Scrabbled Eggs",
+              "name": "5 Scrambled Eggs",
               "calories": 350
             },
             {
@@ -27,19 +27,41 @@
           "name": "Lunch",
           "foods": [
             {
-              "name": "Greek Yogurt",
+              "name": "2 Chicken Breasts",
               "calories": 300
             },
             {
-              "name": "5 Scrabbled Eggs",
+              "name": "1 can black beans",
               "calories": 350
+            },
+            {
+              "name": "1 cup rice",
+              "calories": 100
+            }
+          ],
+          "totalCalories": 750
+        },
+        {
+          "name": "Dinner",
+          "foods": [
+            {
+              "name": "4oz Spaghetti",
+              "calories": 400
+            },
+            {
+              "name": "Sauce",
+              "calories": 70
+            },
+            {
+              "name": "1/4 lb ground beef",
+              "calories": 200
             },
             {
               "name": "1 cup milk",
               "calories": 150
             }
           ],
-          "totalCalories": 800
+          "totalCalories": 820
         }
       ]
     },{
@@ -52,19 +74,96 @@
           "name": "Breakfast",
           "foods": [
             {
-              "name": "Greek Yogurt",
+              "name": "Almond Butter + Banana Smoothie",
+              "calories": 480
+            },
+            {
+              "name": "Whole Wheat Toast",
+              "calories": 260
+            }
+          ],
+          "totalCalories": 740
+        }, {
+          "name": "Lunch",
+          "foods": [
+            {
+              "name": "Ham and Lettuce Sandwich",
               "calories": 300
             },
             {
-              "name": "5 Scrabbled Eggs",
-              "calories": 350
+              "name": "Tofu Salad",
+              "calories": 200
+            }
+          ],
+          "totalCalories": 500
+        }, {
+          "name": "Dinner",
+          "foods": [
+            {
+              "name": "Parmesan Pork Chop",
+              "calories": 750
+            },
+            {
+              "name": "Jicama Slaw",
+              "calories": 160
+            },
+            {
+              "name": "1 cup of milk",
+              "calories": 150
+            }
+          ],
+          "totalCalories": 1060
+        }
+      ]
+    }, {
+      "day": "day 3",
+      "goal": {
+        "calories": 2300
+      },
+      "meals": [
+        {
+          "name": "Breakfast",
+          "foods": [
+            {
+              "name": "Spicy Fried Egg",
+              "calories": 520
+            },
+            {
+              "name": "Pineapple Cottage Cheese",
+              "calories": 260
+            }
+          ],
+          "totalCalories": 780
+        }, {
+          "name": "Lunch",
+          "foods": [
+            {
+              "name": "Peach Protein Smoothie",
+              "calories": 340
+            },
+            {
+              "name": "Avacado",
+              "calories": 320
+            }
+          ],
+          "totalCalories": 660
+        }, {
+          "name": "Dinner",
+          "foods": [
+            {
+              "name": "Fajita Chicken Wrap",
+              "calories": 510
+            },
+            {
+              "name": "1 cup rice",
+              "calories": 200
             },
             {
               "name": "1 cup milk",
               "calories": 150
             }
           ],
-          "totalCalories": 800
+          "totalCalories": 860
         }
       ]
     }
