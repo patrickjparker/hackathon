@@ -1,8 +1,10 @@
 <template>
 <div>
   <Module @click="show = !show" size="75" :completed="allFoodEaten">
-    {{ meal.name }}
-    {{ meal.totalCalories }}
+    <div>
+      <div class="name">{{ meal.name }}</div>
+      <div>Calories: {{ meal.totalCalories }}</div>
+    </div>
   </Module>
   <transition>
     <div v-if="show">
@@ -41,5 +43,9 @@ export default {
 </script>
 
 <style>
+.name {
+  margin: 0.25rem;
+  font-weight: bold;
+}
 
 </style>

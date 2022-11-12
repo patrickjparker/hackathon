@@ -29,6 +29,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   --size: 100px;
   width: var(--size);
   height: var(--size);

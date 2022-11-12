@@ -1,12 +1,7 @@
 <template>
   <div>
     <h1>Week 1</h1>
-    <DayModule v-for="day in mockData.plan" :key="day.day" 
-      :meals="day.meals">
-      <div>
-        <div>{{ day.day }}</div>
-        <div>Calories: {{day.goal.calories}}</div>
-      </div>
+    <DayModule v-for="day in mockData.plan" :key="day.day" :day="day">
     </DayModule>
   </div>
 </template>
@@ -29,5 +24,7 @@ export default {
 </script>
 
 <style scoped>
-
+h1 {
+  margin: 0.25rem;
+}
 </style>
