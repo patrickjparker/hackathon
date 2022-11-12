@@ -1,26 +1,25 @@
 <template>
 <div>
-  <Module @click="show = !show"/>
+  <Module @click="show = !show" size="100">
+    <slot/>
+  </Module>
   <transition>
     <div v-if="show">
-      <div v-for="meal in meals" :key="meal.name">
-        <div v-for="food in meal.foods" :key="food.id">
-          <input type="checkbox" :id="food.name" :value="food.name" v-model="foodsEaten">
-          {{ food.name }}
-          {{ food.calories }}
-        </div>
-        <div> Total Calories: {{ meal.totalCalories }} </div>
-      </div>
+      <MealModule v-for="meal in meals" :key="meal.id" :meal="meal"/>
     </div>
   </transition>
 </div>
 </template>
 
 <script>
-import Module from '@componets/Module.vue'
+import Module from '@/components/Module.vue'
+import MealModule from './MealModule.vue'
 export default {
   name: 'DayModule',
-  components: { Module },
+  components: { Module, MealModule },
+  props: {
+    meals: Array
+  },
   data: function() {
     return {
       show: false,

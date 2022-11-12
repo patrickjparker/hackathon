@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="container">
+  <div class="container" @click="$emit('click')">
     <slot/>
   </div>
 </div>
@@ -9,6 +9,15 @@
 <script>
 export default {
   name: "Module",
+  prop: {
+    size: String
+  },
+  data: function() {
+    return {
+      complete: false,
+      missed: false,
+    }
+  },
 };
 </script>
 

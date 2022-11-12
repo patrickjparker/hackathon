@@ -25,9 +25,8 @@
           "totalCalories": 800
         }
       ]
-    },
-    {
-      "day": "day 1",
+    },{
+      "day": "day 2",
       "goal": {
         "calories": 2300
       },

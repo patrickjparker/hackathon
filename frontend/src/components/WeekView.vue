@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Week 1</h1>
-    <DayModule v-for="day in mockData.plan" :key="day" 
+    <DayModule v-for="day in mockData.plan" :key="day.day" 
       :meals="day.meals">
       <div>
         <div>{{ day.day }}</div>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import DayModule from "@/components/Module.vue";
+import DayModule from "@/components/DayModule.vue";
 import mockData from "@/assets/mockData.json";
 
 export default {
