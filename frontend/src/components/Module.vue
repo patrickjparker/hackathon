@@ -22,5 +22,8 @@ export default {
   width: var(--size);
   height: var(--size);
   border: var(--color-dark) 1px solid;
+  margin-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

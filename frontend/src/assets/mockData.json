@@ -25,6 +25,32 @@
           "totalCalories": 800
         }
       ]
+    },
+    {
+      "day": "day 1",
+      "goal": {
+        "calories": 2300
+      },
+      "meals": [
+        {
+          "name": "Breakfast",
+          "foods": [
+            {
+              "name": "Greek Yogurt",
+              "calories": 300
+            },
+            {
+              "name": "5 Scrabbled Eggs",
+              "calories": 350
+            },
+            {
+              "name": "1 cup milk",
+              "calories": 150
+            }
+          ],
+          "totalCalories": 800
+        }
+      ]
     }
   ]
 }
