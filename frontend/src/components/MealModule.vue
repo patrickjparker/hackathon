@@ -1,13 +1,16 @@
 <template>
 <div class="meal">
-  <Module @click="show = !show" size="75">
-    {{ meal.name }}
-    {{ meal.totalCalories }}
+  <Module @click="show = !show" size="75" :completed="allFoodEaten">
+    <div>
+      <div class="name">{{ meal.name }}</div>
+      <div>Calories: {{ meal.totalCalories }}</div>
+    </div>
   </Module>
   <transition>
     <div class="food" v-if="show">
       <div v-for="food in meal.foods" :key="food.id">
-        {{ food.name }}
+        <input type="checkbox" :value="food.name" v-model="foodEaten"/>
+        <span>{{ food.name }}</span>
       </div>
       <div>Total Calories: {{ meal.totalCalories }}</div>
     </div>
@@ -26,13 +29,24 @@ export default {
   data: function() {
     return {
       show: false,
+      foodEaten: [],
     }
-  }
+  },
+  computed: {
+    allFoodEaten: function() {
+      return this.foodEaten.length === this.meal.foods.length
+    }
+  },
+
 
 }
 </script>
 
 <style>
+.name {
+  margin: 0.25rem;
+  font-weight: bold;
+}
 .meal {
   margin-left: 2em;
   margin-right: 2em;

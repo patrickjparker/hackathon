@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="container" @click="$emit('click')">
+  <div :class="['container', (completed ? 'completed' : '')]" @click="$emit('click')">
     <slot/>
   </div>
 </div>
@@ -9,15 +9,17 @@
 <script>
 export default {
   name: "Module",
-  prop: {
-    size: String
-  },
-  data: function() {
-    return {
-      complete: false,
-      missed: false,
+  props: {
+    size: String,
+    completed: {
+      type: Boolean,
+      default: false
+    },
+    missed: {
+      type: Boolean,
+      default: false
     }
-  },
+  }
 };
 </script>
 
@@ -27,6 +29,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   --size: 100px;
   width: var(--size);
   height: var(--size);
@@ -35,5 +38,10 @@ export default {
   margin-left: auto;
   margin-right: auto;
   clear:both
+}
+
+.completed {
+  background-color: var(--color-success);
+  color: var(--color-white);
 }
 </style>

@@ -1,11 +1,14 @@
 <template>
 <div>
   <Module @click="show = !show" size="100">
-    <slot/>
+    <div>
+      <div class="name">{{ day.day }}</div>
+      <div>Calories: {{day.goal.calories}}</div>
+    </div>
   </Module>
   <transition>
     <div class="meals" v-if="show">
-      <MealModule v-for="meal in meals" :key="meal.id" :meal="meal"/>
+      <MealModule v-for="meal in day.meals" :key="meal.id" :meal="meal"/>
     </div>
   </transition>
 </div>
@@ -18,7 +21,7 @@ export default {
   name: 'DayModule',
   components: { Module, MealModule },
   props: {
-    meals: Array
+    day: Object
   },
   data: function() {
     return {
@@ -29,8 +32,14 @@ export default {
 }
 </script>
 
-<style>
-  .meals {
+<style scoped>
+.name {
+  margin: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}  
+
+.meals {
     display: flex;
     justify-content: center;
   }
