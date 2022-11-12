@@ -8,9 +8,12 @@
   </Module>
   <transition name="slide-fade">
     <div class="food" v-show="show">
-      <div v-for="food in foodsWithCheckboxes" :key="food.id">
-        <input type="checkbox" :value="food.checked" :id="food.name" @input="handleCheckbox($event.target.id)"/>
-        <span>{{ food.name }}</span>
+      <div class="grid">
+        <template v-for="food in foodsWithCheckboxes">
+          <input type="checkbox" :value="food.checked" :key="food.id" 
+            :id="food.name" @input="handleCheckbox($event.target.id)"/>
+          <span :key="food.id">{{ food.name }}</span>
+        </template>
       </div>
       <div>Total Calories: {{ meal.totalCalories }}</div>
     </div>
@@ -80,5 +83,11 @@ export default {
 
 .food {
   margin-top: 1em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: .2rem;
 }
 </style>
