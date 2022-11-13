@@ -3,7 +3,7 @@
   <Module @click="show = !show" size="105" :completed="allFoodEaten" color="meal-color">
     <div>
       <div class="name">{{ meal.name }}</div>
-      <div>Calories: {{ meal.totalCalories }}</div>
+      <div>Calories: {{ meal.percent * dayTotal }}</div>
     </div>
   </Module>
   <transition name="slide-fade">
@@ -15,7 +15,6 @@
           <span @click="handleCheckbox(food.name)" :key="food.id">{{ food.name }}</span>
         </template>
       </div>
-      <div>Total Calories: {{ meal.totalCalories }}</div>
     </div>
   </transition>
 </div>
@@ -26,7 +25,8 @@ import Module from '@/components/Module.vue'
 export default {
   components: { Module },
   props: {
-    meal: Object
+    meal: Object,
+    dayTotal: Number
   },
   data: function() {
     return {
@@ -47,12 +47,24 @@ export default {
     }
   },
   created: function() {
-    this.mealCheckbox = this.meal.foods.map(food => {
-      return {
-        ...food,
-        checked: false
+    let total = 0;
+    this.mealCheckbox = this.meal.foods.reduce((prev, food) => {
+      console.log(this.meal.percent * this.dayTotal)
+      if (total < (this.meal.percent * this.dayTotal)) {
+        total += food.calories
+        prev.push({ ...food, checked: false })
       }
-    })
+      return prev
+    }, [])
+    
+    
+    // this.meal.percent * this.dayTotal
+    // this.mealCheckbox = this.meal.foods.map(food => {
+    //   return {
+    //     ...food,
+    //     checked: false
+    //   }
+    // })
   }
 
 }

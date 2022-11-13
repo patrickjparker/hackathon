@@ -20,9 +20,21 @@
             {
               "name": "1 cup milk",
               "calories": 150
+            },
+            {
+              "name": "5 slices bacon",
+              "calories": 215
+            },
+            {
+              "name": "1 cup blueberries",
+              "calories": 100
+            },
+            {
+              "name": "1 cup strawberries",
+              "calories": 100
             }
           ],
-          "totalCalories": 800
+          "percent": 0.35
         },{
           "name": "Lunch",
           "foods": [
@@ -37,9 +49,15 @@
             {
               "name": "1 cup rice",
               "calories": 100
+            },{
+              "name": "1 cup salsa",
+              "calories": 50
+            },{
+              "name": "2 TB peanut butter",
+              "calories": 188
             }
           ],
-          "totalCalories": 750
+          "percent": 0.30
         },
         {
           "name": "Dinner",
@@ -61,7 +79,7 @@
               "calories": 150
             }
           ],
-          "totalCalories": 820
+          "percent": 0.35
         }
       ]
     },{
@@ -82,7 +100,7 @@
               "calories": 260
             }
           ],
-          "totalCalories": 740
+          "percent": 0.35
         }, {
           "name": "Lunch",
           "foods": [
@@ -95,7 +113,7 @@
               "calories": 200
             }
           ],
-          "totalCalories": 500
+          "percent": 0.30
         }, {
           "name": "Dinner",
           "foods": [
@@ -112,7 +130,7 @@
               "calories": 150
             }
           ],
-          "totalCalories": 1060
+          "percent": 0.35
         }
       ]
     }, {
@@ -133,7 +151,7 @@
               "calories": 260
             }
           ],
-          "totalCalories": 780
+          "percent": 0.30
         }, {
           "name": "Lunch",
           "foods": [
@@ -146,7 +164,7 @@
               "calories": 320
             }
           ],
-          "totalCalories": 660
+          "percent": 0.30
         }, {
           "name": "Dinner",
           "foods": [
@@ -163,7 +181,7 @@
               "calories": 150
             }
           ],
-          "totalCalories": 860
+          "percent": 0.40
         }
       ]
     }

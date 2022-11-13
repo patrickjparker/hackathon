@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Week 1</h1>
-    <DayModule v-for="day in mockData.plan" :key="day.day" :day="day">
+    <DayModule v-for="day in mockData.plan" :key="day.day" :day="day" @input="copyValues($event)">
     </DayModule>
   </div>
 </template>
@@ -19,6 +19,13 @@ export default {
     return {
       mockData,
     };
+  },
+  methods: {
+    copyValues: function(newVal) {
+      mockData.plan.forEach(day => {
+        day.goal.calories = newVal
+      })
+    }
   }
 };
 </script>
