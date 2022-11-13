@@ -1,13 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Plan</router-link> |
-      <router-link to="/profile">Profile</router-link> |
-      <router-link to="/shoppingcart">Shopping Cart</router-link>
+    <div v-if="!loggingin">
+      <div id="nav">
+        <router-link to="/">Plan</router-link> |
+        <router-link to="/shoppingcart">Shopping Cart</router-link>
+      </div>
+      <router-view/>
     </div>
-    <router-view/>
+    <div v-else>
+      <Profile @submit="loggingin=!loggingin"/>
+    </div>
   </div>
 </template>
+
+<script>
+import Profile from "@/views/Profile.vue";
+
+export default {
+  name: 'App',
+  components: {
+    Profile
+  },
+  data: function() {
+    return {
+      loggingin: true
+    }
+  },
+  methods: {
+
+  }
+}
+</script>
 
 <style>
 :root {
