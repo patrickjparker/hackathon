@@ -77,8 +77,8 @@ label {
 
 .grid {
   display: grid;
-  width: 40%;
-  grid-template-columns: 1fr 1fr;
+  width: 25%;
+  grid-template-columns: auto 1fr;
   grid-gap: .25rem;
   justify-content: center;
   align-items: center;

@@ -1,6 +1,6 @@
 <template>
 <div class="meal">
-  <Module @click="show = !show" size="105" :completed="allFoodEaten" color="meal-color">
+  <Module @click="show = !show" size="110" :completed="allFoodEaten" color="meal-color">
     <div>
       <div class="name">{{ meal.name }}</div>
       <div>Calories: {{ meal.percent * dayTotal }}</div>
