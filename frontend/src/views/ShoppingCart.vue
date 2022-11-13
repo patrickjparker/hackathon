@@ -1,7 +1,7 @@
 <template>
     <div class="about">
       <h1>Shopping Cart</h1>
-      
+
         <div v-for="day in mockData.plan" :key="day.day">
             <div class="name">{{ day.day }}</div>
            <div v-for="meal in day.meals" :key="meal.name">

@@ -1,20 +1,39 @@
 <template>
   <div class="about">
-    <h1>Register</h1>
+    <h1>Create New NutriPlan</h1>
     <div class="container">
     <form onSubmit="return false" class="grid">
-      <label for="name">Name: </label>
+      <label for="name">Plan Name: </label>
       <input type="text" id="name">
-      <label for="age">Age: </label>
-      <input type="text" id="age">
-      <label for="sex">Sex: </label>
-      <input type="text" id="sex">
       <label for="current">Current Weight: </label>
       <input type="text" id="current">
       <label for="goal">Goal Weight: </label>
       <input type="text" id="goal">
+      
+      <label for="goal-choice">Plan Focus:</label>
+      <input list="goal-options" id="goal-choice" name="goal-choice" />
+      <datalist id="goal-options">
+          <option v-for="option in options" :key="option">{{option}}</option>
+      </datalist>
+
+      <label id="food-pref-title">Food Preferences:</label>
+
+      <div class="container">
+        <input type="radio" id="white-rice" name="rice" value="white rice">
+        <label for="white-rice">White Rice</label>
+        <input type="radio" id="brown-rice" name="rice" value="brown rice">
+        <label for="brown-rice">Brown Rice</label>
+      </div>
+      <br>
+      <div class="container">
+        <input type="radio" id="steak" name="meat" value="steak">
+        <label for="steak">Steak</label>
+        <input type="radio" id="chicken" name="meat" value="chicken">
+        <label for="chicken">Chicken</label>
+      </div>
+
       <div></div>
-      <input type="submit" value="Submit" @click="submit">
+      <input type="submit" value="Create Plan" @click="submit">
     </form>
     </div>
   </div>
@@ -23,6 +42,16 @@
 <script>
 export default {
   name: 'Profile',
+  data() {
+        return {
+            options: [
+                'Calories',
+                'Protein',
+                'Carbs',
+                'Weight',
+            ]
+        }
+    },
   methods: {
     submit: function() {
       this.$emit('submit');
@@ -54,4 +83,5 @@ label {
   justify-content: center;
   align-items: center;
 }
+
 </style>
